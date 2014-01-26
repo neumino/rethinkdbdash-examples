@@ -1,7 +1,19 @@
 # Todo example with Rethinkdbdash, Koajs and AngularJS
 
-This was originally an example to illustrate AngularJS. It was slightly modified to support a real server that would save the todos.
+This was originally an example to illustrate AngularJS. It was slightly modified to support a real server that would save the todos.  
 The code using rethinkdbdash is in the file `app.js`.
+
+### Run ###
+You need node > 0.11.9 (and currently built from source for rethinkdbdash).
+
+Run `npm install` to install the dependencies.
+
+Update `config.js` if you are not using RethinkDB default parameters.
+
+Start the server with
+```
+node --harmony app.js
+```
 
 
 ### Original source ###
@@ -10,14 +22,17 @@ The original source was taken from:
 [https://github.com/tastejs/todomvc/tree/gh-pages/architecture-examples/angularjs](https://github.com/tastejs/todomvc/tree/gh-pages/architecture-examples/angularjs)
 
 
+
 ### Learn more about rethinkdbdash ###
 [Official repo](https://github.com/neumino/rethinkdbdash)
 [Examples](https://github.com/neumino/rethinkdbdash-examples)
 
 
+
 ### Lear more about koa ###
 [Official repo](https://github.com/koajs/koa)
 [Koa examples](https://github.com/koajs/examples)
+
 
 
 ### Learn more about AngularJS ###
@@ -31,8 +46,9 @@ The original source was taken from:
 * [AngularJS Meetups](http://www.youtube.com/angularjs)
 
 
-### License ###
 
+### License ###
+MIT
 Author: Michel Tu <orphee@gmail.com>
 
 Orginal copyright: [https://github.com/tastejs/todomvc/blob/gh-pages/license.md](https://github.com/tastejs/todomvc/blob/gh-pages/license.md)
