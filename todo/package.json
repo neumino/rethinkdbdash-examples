@@ -1,0 +1,15 @@
+{
+    "name": "thinky-blog-example"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "rethinkdbdash": ">= 1.11.2"
+    , "bluebird": "1.0.0"
+    , "koa": "0.3.0"
+    , "koa-static": "1.4.2"
+    , "koa-route": "1.0.2"
+    , "co-body": "0.0.1"
+    , "co": "3.0.2"
+    , "co-assert-timeout": "0.0.2"
+  }
+}
