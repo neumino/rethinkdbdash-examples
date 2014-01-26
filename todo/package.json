@@ -3,7 +3,7 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "rethinkdbdash": ">= 1.11.2"
+      "rethinkdbdash": ">= 1.11.3"
     , "bluebird": "1.0.0"
     , "koa": "0.3.0"
     , "koa-static": "1.4.2"

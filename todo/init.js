@@ -30,6 +30,5 @@ var run = Promise.coroutine(function* () {
         console.log(e);
     }
     yield r.getPool().drain();
-    process.exit(0)
 })()
 
