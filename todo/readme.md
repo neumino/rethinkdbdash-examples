@@ -29,7 +29,7 @@ The original source was taken from:
 
 
 
-### Lear more about koa ###
+### Learn more about koa ###
 [Official repo](https://github.com/koajs/koa)
 [Koa examples](https://github.com/koajs/examples)
 
