@@ -5,6 +5,7 @@ var serve = require('koa-static');
 var parse = require('co-body');
 var route = require('koa-route');
 var assertTimeout = require('co-assert-timeout');
+var http = require('http');
 
 // Load config for RethinkDB and koa
 var config = require(__dirname+"/config.js")
@@ -34,7 +35,7 @@ function* get() {
     }
     catch(e) {
         this.status = 500;
-        this.body = e.message || require('http').STATUS_CODES[this.status];
+        this.body = e.message || http.STATUS_CODES[this.status];
     }
 }
 
@@ -54,7 +55,7 @@ function* create() {
     }
     catch(e) {
         this.status = 500;
-        this.body = e.message || require('http').STATUS_CODES[this.status];
+        this.body = e.message || http.STATUS_CODES[this.status];
     }
 }
 
@@ -75,7 +76,7 @@ function* update() {
     }
     catch(e) {
         this.status = 500;
-        this.body = e.message || require('http').STATUS_CODES[this.status];
+        this.body = e.message || http..STATUS_CODES[this.status];
     }
 }
 
@@ -88,7 +89,7 @@ function* del() {
     }
     catch(e) {
         this.status = 500;
-        this.body = e.message || require('http').STATUS_CODES[this.status];
+        this.body = e.message || http.STATUS_CODES[this.status];
     }
 }
 
