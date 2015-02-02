@@ -29,8 +29,7 @@ app.use(serve(__dirname+'/public'));
 // Retrieve all todos
 function* get() {
     try{
-        var cursor = yield r.table(config.table).orderBy({index: "createdAt"}).run();
-        var result = yield cursor.toArray();
+        var result = yield r.table(config.table).orderBy({index: "createdAt"});
         this.body = JSON.stringify(result);
     }
     catch(e) {
@@ -47,10 +46,10 @@ function* create() {
             r.expr(todo).merge({
                 createdAt: r.now() // The date r.now(0 gets computed on the server -- new Date() would have work fine too
             }),
-            {returnVals: true}
-        ).run();
+            {returnChanges: true}
+        );
 
-        todo = result.new_val; // todo now contains the previous todo + a field `id` and `createdAt`
+        todo = result.changes[0].new_val; // todo now contains the previous todo + a field `id` and `createdAt`
         this.body = JSON.stringify(todo);
     }
     catch(e) {
@@ -68,15 +67,15 @@ function* update() {
 
         var result = yield r.table(config.table).get(id).update(
             {title: todo.title, completed: todo.completed}, // We just want to update these two fields
-            {returnVals: true}
-        ).run();
+            {returnChanges: true}
+        );
 
-        result = result.new_val;
+        result = result.changes[0].new_val;
         this.body = JSON.stringify(result);
     }
     catch(e) {
         this.status = 500;
-        this.body = e.message || http..STATUS_CODES[this.status];
+        this.body = e.message || http.STATUS_CODES[this.status];
     }
 }
 
@@ -84,7 +83,7 @@ function* update() {
 function* del() {
     try{
         var id = yield parse(this);
-        var result = yield r.table(config.table).get(id).delete().run();
+        var result = yield r.table(config.table).get(id).delete();
         this.body = "";
     }
     catch(e) {
