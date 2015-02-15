@@ -30,20 +30,15 @@ The interesting snippets are:
 ```js
 // Pipe a RethinkDB table to a file
 r.db(db).table(table).toStream({timeFormat: 'raw', binaryFormat: 'raw'})
-  .on('error', _handleError)
   .pipe(Stringify())
-  .on('error', _handleError)
   .pipe(fs.createWriteStream(dir+'/'+db+'.'+table+'.txt'))
-  .on('error', _handleError)
   .on('finish', cb);
 ```
 
 ```js
 // Pipe a file to a RethinkDB table
 fs.createReadStream(file)
-  .on('error', _handleError)
   .pipe(split(JSON.parse))
-  .on('error', _handleError)
   .pipe(r.db(db).table(table).toStream({writable: true}))
   .on('finish', cb);
 ```
