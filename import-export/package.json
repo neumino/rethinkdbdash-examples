@@ -1,0 +1,11 @@
+{
+    "name": "rethinkdbdash-stream-export"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "rethinkdbdash": ">= 1.16.10"
+    , "streaming-json-stringify": "1.0.0"
+    , "minimist": "1.1.0"
+    , "split": "0.3.3"
+  }
+}
